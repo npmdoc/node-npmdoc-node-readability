@@ -1,0 +1,374 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/luin/node-readability">node-readability (v2.2.0)</a>
+</h1>
+<h4>Turning any web page into a clean view.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-readability">module node-readability</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-readability.read">
+            function <span class="apidocSignatureSpan">node-readability.</span>read
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-readability.</span>helpers</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-readability.helpers">module node-readability.helpers</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-readability.helpers.debug">
+            function <span class="apidocSignatureSpan">node-readability.helpers.</span>debug
+            <span class="apidocSignatureSpan">(debug)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-readability.helpers.getInnerText">
+            function <span class="apidocSignatureSpan">node-readability.helpers.</span>getInnerText
+            <span class="apidocSignatureSpan">(e, normalizeSpaces)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-readability.helpers.grabArticle">
+            function <span class="apidocSignatureSpan">node-readability.helpers.</span>grabArticle
+            <span class="apidocSignatureSpan">(document, preserveUnlikelyCandidates)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-readability.helpers.prepDocument">
+            function <span class="apidocSignatureSpan">node-readability.helpers.</span>prepDocument
+            <span class="apidocSignatureSpan">(document)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-readability.helpers.setCleanRules">
+            function <span class="apidocSignatureSpan">node-readability.helpers.</span>setCleanRules
+            <span class="apidocSignatureSpan">(rules)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-readability" id="apidoc.module.node-readability">module node-readability</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-readability.read" id="apidoc.element.node-readability.read">
+        function <span class="apidocSignatureSpan">node-readability.</span>read
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">read = function () {
+  console.warn('`readability.read` is deprecated. Just use `var read = require("node-readability"); read(url...);`.');
+  return read.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-readability.helpers" id="apidoc.module.node-readability.helpers">module node-readability.helpers</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-readability.helpers.debug" id="apidoc.element.node-readability.helpers.debug">
+        function <span class="apidocSignatureSpan">node-readability.helpers.</span>debug
+        <span class="apidocSignatureSpan">(debug)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">debug = function (debug) {
+  dbg = (debug) ? console.log : function() {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-readability.helpers.getInnerText" id="apidoc.element.node-readability.helpers.getInnerText">
+        function <span class="apidocSignatureSpan">node-readability.helpers.</span>getInnerText
+        <span class="apidocSignatureSpan">(e, normalizeSpaces)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getInnerText = function (e, normalizeSpaces) {
+  var textContent = "";
+
+  normalizeSpaces = (typeof normalizeSpaces == 'undefined') ? true : normalizeSpaces;
+
+  textContent = e.textContent.trim();
+
+  if (normalizeSpaces) return textContent.replace(regexps.normalizeRe, " ");
+  else return textContent;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-readability.helpers.grabArticle" id="apidoc.element.node-readability.helpers.grabArticle">
+        function <span class="apidocSignatureSpan">node-readability.helpers.</span>grabArticle
+        <span class="apidocSignatureSpan">(document, preserveUnlikelyCandidates)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">grabArticle = function (document, preserveUnlikelyCandidates) {
+<span class="apidocCodeCommentSpan">  /**
+   * First, node prepping. Trash nodes that look cruddy (like ones with the class name "comment", etc), and turn divs
+   * into P tags where they have been used inappropriately (as in, where they contain no other block level elements.)
+   *
+   * Note: Assignment from index for performance. See http://www.peachpit.com/articles/article.aspx?p=31567&amp;seqNum=5
+   * TODO: Shouldn't this be a reverse traversal?
+   **/
+</span>  var nodes = document.getElementsByTagName('*');
+  for (var i = 0; i &lt; nodes.length; ++i) {
+    var node = nodes[i];
+    // Remove unlikely candidates */
+    var continueFlag = false;
+    if (!preserveUnlikelyCandidates) {
+      var unlikelyMatchString = node.className + node.id;
+      if (unlikelyMatchString.search(regexps.unlikelyCandidatesRe) !== -1 &amp;&amp; unlikelyMatchString.search(regexps.okMaybeItsACandidateRe
+) == -1 &amp;&amp; node.tagName !== 'HTML' &amp;&amp; node.tagName !== "BODY") {
+        dbg("Removing unlikely candidate - " + unlikelyMatchString);
+        node.parentNode.removeChild(node);
+        continueFlag = true;
+      }
+    }
+
+    // Turn all divs that don't have children block level elements into p's
+    if (!continueFlag &amp;&amp; node.tagName === 'DIV') {
+      if (node.innerHTML.search(regexps.divToPElementsRe) === -1) {
+        dbg("Altering div to p");
+        var newNode = document.createElement('p');
+        newNode.innerHTML = node.innerHTML;
+        node.parentNode.replaceChild(newNode, node);
+      } else {
+        // EXPERIMENTAL
+        Array.prototype.slice.call(node.childNodes).forEach(function(childNode) {
+          if (childNode.nodeType == 3 /*TEXT_NODE*/ ) {
+            // use span instead of p. Need more tests.
+            dbg("replacing text node with a span tag with the same content.");
+            var span = document.createElement('span');
+            span.innerHTML = childNode.nodeValue;
+            childNode.parentNode.replaceChild(span, childNode);
+          }
+        });
+      }
+    }
+  }
+
+  /**
+   * Loop through all paragraphs, and assign a score to them based on how content-y they look.
+   * Then add their score to their parent node.
+   *
+   * A score is determined by things like number of commas, class names, etc. Maybe eventually link density.
+   **/
+  var allParagraphs = document.getElementsByTagName("p");
+  var candidates = [];
+
+  for (var i = 0; i &lt; allParagraphs.length; ++i) {
+    var paragraph = allParagraphs[i];
+    var parentNode = paragraph.parentNode;
+    var grandParentNode = parentNode.parentNode;
+    var innerText = getInnerText(paragraph);
+
+    // If this paragraph is less than 25 characters, don't even count it.
+    if (innerText.length &lt; 25) continue;
+
+    // Initialize readability data for the parent.
+    if (typeof parentNode.readability == 'undefined') {
+      initializeNode(parentNode);
+      candidates.push(parentNode);
+    }
+
+    // Initialize readability data for the grandparent.
+    if (typeof grandParentNode.readability == 'undefined') {
+      initializeNode(grandParentNode);
+      candidates.push(grandParentNode);
+    }
+
+    var contentScore = 0;
+
+    // Add a point for the paragraph itself as a base. */
+    ++contentScore;
+
+    // Add points for any commas within this paragraph */
+    contentScore += innerText.replace('ï¼Œ', ',').split(',').length;
+
+    // For every 100 characters in this paragraph, add another point. Up to 3 points. */
+    contentScore += Math.min(Math.floor(innerText.length / 100), 3);
+
+    // Add the score to the parent. The grandparent gets half. */
+    parentNode.readability.contentScore += contentScore;
+    grandParentNode.readability.contentScore += contentScore / 2;
+  }
+
+
+  /**
+   * After we've calculated scores, loop through all of the possible candidate nodes we found
+   * and find the one with the highest score.
+   **/
+  var topCandidate = null;
+  candidates.forEach(function(candidate) {
+    /**
+     * Scale the final candidates score based on link density. Good content should have a
+     * relatively small link density (5% or less) and be mostly unaffected by this operation. ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-readability.helpers.prepDocument" id="apidoc.element.node-readability.helpers.prepDocument">
+        function <span class="apidocSignatureSpan">node-readability.helpers.</span>prepDocument
+        <span class="apidocSignatureSpan">(document)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prepDocument = function (document) {
+  var frames = document.getElementsByTagName('frame');
+  if (frames.length &gt; 0) {
+    var bestFrame = null;
+    var bestFrameSize = 0;
+
+    Array.prototype.slice.call(frames, 0).forEach(function(frame) {
+      var frameSize = frame.offsetWidth + frame.offsetHeight;
+      var canAccessFrame = false;
+      try {
+        frame.contentWindow.document.body;
+        canAccessFrame = true;
+      } catch (e) {}
+
+      if (canAccessFrame &amp;&amp; frameSize &gt; bestFrameSize) {
+        bestFrame = frame;
+        bestFrameSize = frameSize;
+      }
+    });
+
+    if (bestFrame) {
+      var newBody = document.createElement('body');
+      newBody.innerHTML = bestFrame.contentWindow.document.body.innerHTML;
+      newBody.style.overflow = 'scroll';
+      document.body = newBody;
+
+      var frameset = document.getElementsByTagName('frameset')[0];
+      if (frameset) {
+        frameset.parentNode.removeChild(frameset);
+      }
+    }
+  }
+
+  // turn all double br's into p's
+  // note, this is pretty costly as far as processing goes. Maybe optimize later.
+  // document.body.innerHTML = document.body.innerHTML.replace(regexps.replaceBrsRe, '&lt;/p&gt;&lt;p&gt;').replace(regexps.replaceFontsRe, '&lt;$
+1span&gt;');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-readability.helpers.setCleanRules" id="apidoc.element.node-readability.helpers.setCleanRules">
+        function <span class="apidocSignatureSpan">node-readability.helpers.</span>setCleanRules
+        <span class="apidocSignatureSpan">(rules)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setCleanRules = function (rules) {
+  cleanRules = rules;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
