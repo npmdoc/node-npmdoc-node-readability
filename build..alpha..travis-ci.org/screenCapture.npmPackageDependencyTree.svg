@@ -32,12 +32,12 @@
 <tspan x="10" y="474">  │ │ │   └── domelementtype@1.1.3 </tspan>
 <tspan x="10" y="490">  │ │ ├── entities@1.1.1 </tspan>
 <tspan x="10" y="506">  │ │ ├── inherits@2.0.3 </tspan>
-<tspan x="10" y="522">  │ │ └─┬ readable-stream@2.2.6 </tspan>
+<tspan x="10" y="522">  │ │ └─┬ readable-stream@2.2.7 </tspan>
 <tspan x="10" y="538">  │ │   ├── buffer-shims@1.0.0 </tspan>
 <tspan x="10" y="554">  │ │   ├── core-util-is@1.0.2 </tspan>
 <tspan x="10" y="570">  │ │   ├── isarray@1.0.0 </tspan>
 <tspan x="10" y="586">  │ │   ├── process-nextick-args@1.0.7 </tspan>
-<tspan x="10" y="602">  │ │   ├── string_decoder@0.10.31 </tspan>
+<tspan x="10" y="602">  │ │   ├── string_decoder@1.0.0 </tspan>
 <tspan x="10" y="618">  │ │   └── util-deprecate@1.0.2 </tspan>
 <tspan x="10" y="634">  │ ├── nwmatcher@1.3.9 </tspan>
 <tspan x="10" y="650">  │ ├── parse5@1.5.1 </tspan>
