@@ -1,4 +1,7 @@
-# api documentation for  [node-readability (v2.2.0)](https://github.com/luin/node-readability)  [![npm package](https://img.shields.io/npm/v/npmdoc-node-readability.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-node-readability) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-node-readability.svg)](https://travis-ci.org/npmdoc/node-npmdoc-node-readability)
+# npmdoc-node-readability
+
+#### basic api documentation for  [node-readability (v2.2.0)](https://github.com/luin/node-readability)  [![npm package](https://img.shields.io/npm/v/npmdoc-node-readability.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-node-readability) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-node-readability.svg)](https://travis-ci.org/npmdoc/node-npmdoc-node-readability)
+
 #### Turning any web page into a clean view.
 
 [![NPM](https://nodei.co/npm/node-readability.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/node-readability)
