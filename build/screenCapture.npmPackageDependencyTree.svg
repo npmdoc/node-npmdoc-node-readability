@@ -6,7 +6,7 @@
 <tspan x="10" y="58">node_modules</tspan>
 <tspan x="10" y="74">└─┬ node-readability@2.2.0 </tspan>
 <tspan x="10" y="90">  ├─┬ encoding@0.1.12 </tspan>
-<tspan x="10" y="106">  │ └── iconv-lite@0.4.15 </tspan>
+<tspan x="10" y="106">  │ └── iconv-lite@0.4.16 </tspan>
 <tspan x="10" y="122">  ├─┬ jsdom@6.5.1 </tspan>
 <tspan x="10" y="138">  │ ├── acorn@2.7.0 </tspan>
 <tspan x="10" y="154">  │ ├── acorn-globals@1.0.9 </tspan>

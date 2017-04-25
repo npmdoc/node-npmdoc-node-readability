@@ -74,24 +74,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.node-readability.readability">
-            function <span class="apidocSignatureSpan">node-readability.</span>readability
-            <span class="apidocSignatureSpan">(html, options, callback)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.node-readability.toString">
-            function <span class="apidocSignatureSpan">node-readability.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-readability.</span>helpers</span>
 
         </li>
@@ -141,32 +123,6 @@
             <a class="apidocElementLiA" href="#apidoc.element.node-readability.helpers.setCleanRules">
             function <span class="apidocSignatureSpan">node-readability.helpers.</span>setCleanRules
             <span class="apidocSignatureSpan">(rules)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.node-readability.read">module node-readability.read</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.node-readability.read.read">
-            function <span class="apidocSignatureSpan">node-readability.</span>read
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.node-readability.toString">module node-readability.toString</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.node-readability.toString.toString">
-            function <span class="apidocSignatureSpan">node-readability.</span>toString
-            <span class="apidocSignatureSpan">()</span>
             </a>
 
         </li>
@@ -292,118 +248,6 @@
 
 
 
-    <h2>
-        <a href="#apidoc.element.node-readability.readability" id="apidoc.element.node-readability.readability">
-        function <span class="apidocSignatureSpan">node-readability.</span>readability
-        <span class="apidocSignatureSpan">(html, options, callback)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function read(html, options, callback) {
-  if (typeof options === 'function') {
-    callback = options;
-    options = {};
-  }
-
-  var overrideEncoding = options.encoding,
-      preprocess = options.preprocess;
-
-  options.encoding = null;
-  delete options.preprocess;
-
-  var parsedURL = urllib.parse(html);
-  if (['http:', 'https:', 'unix:', 'ftp:', 'sftp:'].indexOf(parsedURL.protocol) === -1) {
-    jsdomParse(null, null, html);
-  } else {
-    request(html, options, function(err, res, buffer) {
-      if (err) {
-        return callback(err);
-      }
-
-      var content_type = _parseContentType(res.headers['content-type']);
-
-      if (content_type.mimeType == "text/html") {
-        content_type.charset = _findHTMLCharset(buffer) || content_type.charset;
-      }
-
-      content_type.charset = (overrideEncoding || content_type.charset || "utf-8").trim().toLowerCase();
-
-      if (!content_type.charset.match(/^utf-?8$/i)) {
-        buffer = encodinglib.convert(buffer, "UTF-8", content_type.charset);
-      }
-
-      buffer = buffer.toString();
-
-      if (preprocess) {
-        preprocess(buffer, res, content_type, function(err, buffer) {
-          if (err) return callback(err);
-          jsdomParse(null, res, buffer);
-        });
-      } else {
-        jsdomParse(null, res, buffer);
-      }
-    });
-  }
-
-  function jsdomParse(error, meta, body) {
-    if (error) {
-      return callback(error);
-    }
-
-    if (typeof body !== 'string') body = body.toString();
-    if (!body) return callback(new Error('Empty story body returned from URL'));
-    jsdom.env({
-      html: body,
-      done: function(errors, window) {
-        if (meta) {
-          window.document.originalURL = meta.request.uri.href;
-        } else {
-          window.document.originalURL = null;
-        }
-
-        if (errors) {
-          window.close();
-          return callback(errors);
-        }
-        if (!window.document.body) {
-          window.close();
-          return callback(new Error('No body tag was found.'));
-        }
-
-        try {
-          var readability = new Readability(window, options);
-
-          // add meta information to callback
-          callback(null, readability, meta);
-        } catch (ex) {
-          window.close();
-          return callback(ex);
-
-        }
-      }
-    });
-  }
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.node-readability.toString" id="apidoc.element.node-readability.toString">
-        function <span class="apidocSignatureSpan">node-readability.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
 
 </div>
 
@@ -421,7 +265,23 @@
     <li>description and source-code<pre class="apidocCodePre">debug = function (debug) {
   dbg = (debug) ? console.log : function() {};
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var jsdom = require('jsdom');
+var request = require('request');
+var helpers = require('./helpers');
+var encodinglib = require("encoding");
+var urllib = require('url');
+
+exports.debug = function(debug) {
+helpers.<span class="apidocCodeKeywordSpan">debug</span>(debug);
+};
+
+exports.debug(false);
+
+function Readability(window, options) {
+this._window = window;
+this._document = window.document;
+...</pre></li>
     </ul>
 
 
@@ -443,7 +303,22 @@
   if (normalizeSpaces) return textContent.replace(regexps.normalizeRe, " ");
   else return textContent;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  console.warn('The method `getContent()` is deprecated, using `content` property instead.');
+}
+if (typeof this.cache['article-content'] !== 'undefined') {
+  return this.cache['article-content'];
+}
+
+var articleContent = helpers.grabArticle(this._document);
+if (helpers.<span class="apidocCodeKeywordSpan">getInnerText</span>(articleContent, false) === '') {
+  this._document.body.innerHTML = this.cache.body;
+  articleContent = helpers.grabArticle(this._document, true);
+  if (helpers.getInnerText(articleContent, false) === '') {
+    return this.cache['article-content'] = false;
+  }
+}
+...</pre></li>
     </ul>
 
 
@@ -556,7 +431,23 @@
     /**
      * Scale the final candidates score based on link density. Good content should have a
      * relatively small link density (5% or less) and be mostly unaffected by this operation. ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (!notDeprecated) {
+  console.warn('The method `getContent()` is deprecated, using `content` property instead.');
+}
+if (typeof this.cache['article-content'] !== 'undefined') {
+  return this.cache['article-content'];
+}
+
+var articleContent = helpers.<span class="apidocCodeKeywordSpan">grabArticle</span>(this._document);
+if (helpers.getInnerText(articleContent, false) === '') {
+  this._document.body.innerHTML = this.cache.body;
+  articleContent = helpers.grabArticle(this._document, true);
+  if (helpers.getInnerText(articleContent, false) === '') {
+    return this.cache['article-content'] = false;
+  }
+}
+...</pre></li>
     </ul>
 
 
@@ -606,7 +497,23 @@
   // document.body.innerHTML = document.body.innerHTML.replace(regexps.replaceBrsRe, '&lt;/p&gt;&lt;p&gt;').replace(regexps.replaceFontsRe, '&lt;$
 1span&gt;');
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Cache the body HTML in case we need to re-use it later
+this.bodyCache = null;
+this._articleContent = '';
+helpers.setCleanRules(options.cleanRulers || []);
+
+this.cache = {};
+
+helpers.<span class="apidocCodeKeywordSpan">prepDocument</span>(this._document);
+this.cache = {
+  'body': this._document.body.innerHTML
+};
+
+this.__defineGetter__('content', function() {
+  return this.getContent(true);
+});
+...</pre></li>
     </ul>
 
 
@@ -621,46 +528,23 @@
     <li>description and source-code<pre class="apidocCodePre">setCleanRules = function (rules) {
   cleanRules = rules;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
+    <li>example usage<pre class="apidocCodePre">...
+function Readability(window, options) {
+this._window = window;
+this._document = window.document;
+this.iframeLoads = 0;
+// Cache the body HTML in case we need to re-use it later
+this.bodyCache = null;
+this._articleContent = '';
+helpers.<span class="apidocCodeKeywordSpan">setCleanRules</span>(options.cleanRulers || []);
 
+this.cache = {};
 
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.node-readability.read" id="apidoc.module.node-readability.read">module node-readability.read</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.node-readability.read.read" id="apidoc.element.node-readability.read.read">
-        function <span class="apidocSignatureSpan">node-readability.</span>read
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">read = function () {
-  console.warn('`readability.read` is deprecated. Just use `var read = require("node-readability"); read(url...);`.');
-  return read.apply(this, arguments);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.node-readability.toString" id="apidoc.module.node-readability.toString">module node-readability.toString</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.node-readability.toString.toString" id="apidoc.element.node-readability.toString.toString">
-        function <span class="apidocSignatureSpan">node-readability.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+helpers.prepDocument(this._document);
+this.cache = {
+  'body': this._document.body.innerHTML
+};
+...</pre></li>
     </ul>
 
 
